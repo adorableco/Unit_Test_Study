@@ -1,6 +1,7 @@
 package com.example.unitTestStudy.post.service;
 
 import com.example.unitTestStudy.common.exception.NotFoundException;
+import com.example.unitTestStudy.post.converter.PostConverter;
 import com.example.unitTestStudy.post.domain.Post;
 import com.example.unitTestStudy.post.dto.PostCreateRequestDto;
 import com.example.unitTestStudy.post.dto.PostEditRequestDto;
@@ -8,12 +9,14 @@ import com.example.unitTestStudy.post.dto.PostResponseDto;
 import com.example.unitTestStudy.post.repository.PostRepository;
 import com.example.unitTestStudy.user.domain.User;
 import com.example.unitTestStudy.user.repository.UserRepository;
+import com.example.unitTestStudy.user.service.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -38,6 +41,9 @@ class PostServiceTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Spy
+    private PostConverter postConverter;
 
 
     @Test
